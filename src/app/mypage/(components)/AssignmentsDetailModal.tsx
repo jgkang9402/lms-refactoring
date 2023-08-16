@@ -44,7 +44,7 @@ const AssignmentsDetailModal = ({
                 {item}
               </Link>
             ))}
-           {targetAssignments.attachmentFiles &&
+          {targetAssignments.attachmentFiles &&
             targetAssignments.attachmentFiles.length > 0 &&
             targetAssignments.attachmentFiles.filter(item => item.url !== "")
               .length > 0 &&
