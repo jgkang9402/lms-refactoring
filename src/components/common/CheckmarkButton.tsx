@@ -24,13 +24,22 @@ const CheckmarkButton = () => {
       <div className="relative">
         <svg
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-checkmark"
-          width="50"
-          height="50"
-          viewBox="0 0 50 50"
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
         >
+          <circle
+            cx="50"
+            cy="50"
+            r="48"
+            fill="none"
+            strokeWidth="8"
+            className="stroke-white"
+          />
           <path
-            className="text-green-500 fill-none stroke-current stroke-2"
-            d="M5 25 L20 40 L45 5"
+            className="fill-none stroke-white"
+            strokeWidth="12"
+            d="M20 50 L40 70 L80 30"
           ></path>
         </svg>
       </div>
