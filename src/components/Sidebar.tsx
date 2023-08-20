@@ -80,7 +80,7 @@ const Sidebar = ({
         onClick={onOpenCourse}
       >
         <div className="w-[55px] flex justify-center items-center">
-          {isEdit ? (
+          {isEdit && !isAssignmentSidebar ? (
             <>
               <input
                 type="checkbox"
