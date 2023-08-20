@@ -112,7 +112,7 @@ export default function LoginForm() {
           ) : !isLoading ? (
             "로그인"
           ) : (
-            <LoadingSpinner />
+            <LoadingSpinner isWhiteSpinner={true} />
           )
         }
         disabled={isSubmitting}
