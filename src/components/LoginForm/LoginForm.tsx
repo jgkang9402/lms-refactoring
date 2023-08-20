@@ -7,6 +7,7 @@ import { useLoginMutation } from "@/hooks/reactQuery/login/useLoginMutation";
 import LoadingSpinner from "@/components/Loading/Loading";
 import { Toast } from "sfac-designkit-react";
 import { useToast } from "@/hooks/useToast";
+import CheckmarkButton from "../common/CheckmarkButton";
 
 interface FormValue {
   email: string;
@@ -22,9 +23,7 @@ export default function LoginForm() {
   } = useForm<FormValue>();
   const emailValue = watch("email");
   const passwordValue = watch("password");
-  const { mutate, isLoading, toastProps } = useLoginMutation();
-
-  if (isLoading) return <LoadingSpinner />;
+  const { mutate, isLoading, isSuccess, toastProps } = useLoginMutation();
 
   return (
     <form
@@ -102,12 +101,20 @@ export default function LoginForm() {
       </div>
       <div className="flex justify-between mx-[15px]">
         <p className="text-grayscale-60">비밀번호를 잊어버리셨나요?</p>
-        <Link href="/forgotPassword/" className="text-primary-100">
+        <Link href="/forgotPassword" className="text-primary-100">
           비밀번호 찾기
         </Link>
       </div>
       <Button
-        text="로그인"
+        text={
+          isSuccess ? (
+            <CheckmarkButton />
+          ) : !isLoading ? (
+            "로그인"
+          ) : (
+            <LoadingSpinner />
+          )
+        }
         disabled={isSubmitting}
         isError={
           !emailValue || !passwordValue || errors.email || errors.password

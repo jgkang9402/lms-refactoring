@@ -4,7 +4,7 @@ export default function Button({
   isError,
   options,
 }: {
-  text: string;
+  text: string | React.ReactNode;
   disabled?: boolean;
   isError?: boolean;
   options?: string;
